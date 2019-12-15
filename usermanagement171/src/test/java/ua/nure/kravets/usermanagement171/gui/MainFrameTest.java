@@ -42,6 +42,6 @@ public class MainFrameTest extends JFCTestCase {
 		find(JButton.class, "addButton");
 		find(JButton.class, "editButton");
 		find(JButton.class, "deleteButton");
-		find(JButton.class, "detailButton");
+		find(JButton.class, "detailsButton");
 }
 }
