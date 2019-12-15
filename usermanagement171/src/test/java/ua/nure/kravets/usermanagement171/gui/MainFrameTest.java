@@ -53,7 +53,7 @@ public class MainFrameTest extends JFCTestCase {
 		find (JPanel.class, "addPanel");
 		find (JTextField.class, "firstNameField");
 		find (JTextField.class, "lastNameField");
-		find (JTextField.class, "dateofBirthField");
+		find (JTextField.class, "dateOfBirthField");
 		find(JButton.class, "okButton");
 		find(JButton.class, "cancelButton");
 	}
