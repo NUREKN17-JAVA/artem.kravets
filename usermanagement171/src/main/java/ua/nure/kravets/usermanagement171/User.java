@@ -2,7 +2,6 @@ package ua.nure.kravets.usermanagement171;
 
 import java.util.Calendar;
 import java.util.Date;
-
 public class User {
 private Long id;
 private String firstName;
@@ -75,4 +74,22 @@ public int getAge() {
 	}	
 	return age;
   }
+public boolean equals(User obj) {
+	if(obj == null) {
+		return false;
+	}
+	if(this == obj) {
+		return true;
+	}
+	if(this.getId()==null&&((User) obj).getId()==null) {
+		return true;
+	}
+	return this.getId().equals(obj.getId());
+}
+public int hashCode() {
+	if(this.getId()==null) {
+		return 0;
+	}
+	return this.getId().hashCode();
+}
 }
