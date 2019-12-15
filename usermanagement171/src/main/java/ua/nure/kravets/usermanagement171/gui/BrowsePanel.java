@@ -106,7 +106,12 @@ public class BrowsePanel extends JPanel implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		String actionCommand = e.getActionCommand();
+		if ("add".equalsIgnoreCase(actionCommand)) {
+			this.setVisible(true);
+			parent.showAddPanel();
+			
+		}
 		
 	}
 	
