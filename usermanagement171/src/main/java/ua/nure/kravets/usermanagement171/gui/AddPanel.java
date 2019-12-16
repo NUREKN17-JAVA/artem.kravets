@@ -1,16 +1,22 @@
 package ua.nure.kravets.usermanagement171.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ua.nure.kravets.usermanagement171.User;
+import ua.nure.kravets.usermanagement171.db.DatabaseException;
 import ua.nure.kravets.usermanagement171.util.Messages;
 
 public class AddPanel extends JPanel implements ActionListener {
@@ -23,6 +29,7 @@ public class AddPanel extends JPanel implements ActionListener {
 	private JTextField dateOfBirthField;
 	private JTextField lastNameField;
 	private JTextField firstNameField;
+	private Color bgColor;
 	
 	public AddPanel (MainFrame parent) {
 		this.parent = parent;
@@ -117,8 +124,39 @@ public class AddPanel extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if ("ok".equalsIgnoreCase(e.getActionCommand())) {
+			User user = new User();
+			user.setFirstName(getFirstNameField().getText());
+			user.setLastName(getLastNameField().getText());
+			DateFormat format = DateFormat.getDateInstance();
+			try {
+				user.setDateOfBirth(format.parse (getDateOfBirthField().getText()));
+			} catch (ParseException e1) {
+				getDateOfBirthField().setBackground(Color.RED);
+				return ;
+			}
+			try {
+				parent.getDao().create(user);
+			} catch (DatabaseException e1) {
+			JOptionPane.showMessageDialog(this, e1.getMessage(), "Error", 
+					JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		clearFields();
 		this.setVisible(false); 	
 		parent.showBrowsePanel();
+	}
+
+	private void clearFields() {
+		getFirstNameField().setText("");
+		getFirstNameField().setBackground(bgColor);
+
+		getLastNameField().setText("");
+		getLastNameField().setBackground(bgColor);
+		
+		getDateOfBirthField().setText("");
+		getDateOfBirthField().setBackground(bgColor);
+		
 	}
 
 }
