@@ -2,9 +2,10 @@
 <html>
 <head><title>User management</title></head>
 <body>
+<form action="<%=request.getContextPath()%>/browse" method="post">
     <table id=”userTable” border="1">
     	<tr>
-    		<th></th>
+    	<th></th>
 		<th>First name</th>
 		<th>Last name</th>
 		<th>Date of birth</th>
@@ -18,5 +19,15 @@
 	</tr>
 	</c:forEach>
     </table>
+    <input type="submit" name="addButton" value="Add">
+    <input type="submit" name="editButton" value="Edit">
+    <input type="submit" name="deleteButton" value="Delete">
+    <input type="submit" name="detailsButton" value="Details">
+    <c:if test ="${requetScope.error !=null}">
+	<script>
+		alert('${reqquestScope.error}');
+	</script>
+	</c:if>
+    </form>
 </body>
 </html>
