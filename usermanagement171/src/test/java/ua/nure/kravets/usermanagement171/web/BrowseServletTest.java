@@ -8,7 +8,7 @@ import java.util.List;
 import ua.nure.kravets.usermanagement171.web.BrowseServlet;
 import ua.nure.kravets.usermanagement171.web.MockServletTestCase;
 import ua.nure.kravets.usermanagement171.User;
-
+	
 public class BrowseServletTest extends MockServletTestCase {
 	private static final String DELETE_USER = "deleteUser";
 	private static final String GET_USER = "getUser";
