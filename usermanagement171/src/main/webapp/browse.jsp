@@ -1,6 +1,6 @@
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head><title>User management</title></head>
+<head><title>User management/Browse</title></head>
 <body>
 <form action="<%=request.getContextPath()%>/browse" method="post">
     <table id=”userTable” border="1">
