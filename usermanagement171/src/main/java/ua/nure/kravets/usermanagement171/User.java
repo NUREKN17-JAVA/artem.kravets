@@ -1,12 +1,18 @@
 package ua.nure.kravets.usermanagement171;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
-public class User {
-private Long id;
-private String firstName;
-private String lastName;
-private Date dateOfBirth;
+import java.util.Objects;
+
+
+
+public class User implements Serializable {
+	private static final long serialVersionUID = -3760492779402022862L;	
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private Date dateOfBirth;
 
  public User() {
     }
@@ -17,6 +23,12 @@ public User(Long id, String firstName, String lastName, Date dateOfBirth) {
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
     }
+public User(String firstName, String lastName, Date date) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dateOfBirth = date;
+
+}
 public Long getId() {
 	return id;
 }

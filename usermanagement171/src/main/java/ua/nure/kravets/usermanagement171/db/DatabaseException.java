@@ -1,29 +1,17 @@
 package ua.nure.kravets.usermanagement171.db;
 
+import java.sql.SQLException;
+
 public class DatabaseException extends Exception {
 
-	public DatabaseException() {
-		// TODO Auto-generated constructor stub
+	private static final long serialVersionUID = 1L;
+
+	public DatabaseException(SQLException e) {
+		super(e);
 	}
 
-	public DatabaseException(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
-	}
-
-	public DatabaseException(Throwable arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
-	}
-
-	public DatabaseException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
-	}
-
-	public DatabaseException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
-		// TODO Auto-generated constructor stub
+	public DatabaseException(String string) {
+		super(string);
 	}
 
 }
